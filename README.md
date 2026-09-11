@@ -105,15 +105,6 @@ python3 -m unittest discover -v          # 4 tests, stdlib only
 In a Hermes session, `web_extract` on any URL (e.g. `https://example.com`)
 should return `{"results": [{"url", "title", "content", ...}]}` with no error.
 
-## The contract gotcha
-
-Hermes' provider ABC (`agent/web_search_provider.py`) requires `extract()` to
-return a **list** of per-URL dicts — not `{"success": True, "data": [...]}`.
-Returning the dict wrapper breaks dispatch with
-`Error extracting content: 'str' object has no attribute 'get'` (it iterates
-the dict's string keys and calls `.get()` on them). This repo returns the list
-directly; don't "fix" it back.
-
 ## Layout
 
 | File | What |
