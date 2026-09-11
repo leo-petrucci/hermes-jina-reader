@@ -1,0 +1,9 @@
+name: web-jina-reader
+version: 1.1.0
+description: "Jina Reader (self-hosted) — URL to markdown extraction"
+author: Hermes
+kind: backend
+provides_web_providers:
+  - jina-reader
+requires_env:
+  - JINA_READER_URL
